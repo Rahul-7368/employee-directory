@@ -20,7 +20,7 @@ window.onload = async function () {
 
   let storedEmployees = stored ? JSON.parse(stored) : [];
 
-  const response = await fetch('../data/employees.json');
+  const response = await fetch('./data/employees.json');
   const fileEmployees = await response.json();
 
   const merged = [...fileEmployees];
@@ -36,7 +36,7 @@ window.onload = async function () {
   localStorage.setItem("employees", JSON.stringify(allEmployees));
 
 
-  const templateText = await fetch('../templates/employee-list.ftl').then(res => res.text());
+  const templateText = await fetch('./templates/employee-list.ftl').then(res => res.text());
   const handlebarsTemplate = Handlebars.compile(templateText);
 
   const addBtn = document.getElementById("addEmployeeBtn");
